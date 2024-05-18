@@ -1,0 +1,9 @@
+#Create bar charts to compare sales performance across different customer segments.
+plt.figure(figsize=(10,6))
+sns.barplot(x='Segment', y='Sales Performance', data=df)
+plt.xlabel('Segment')
+plt.ylabel('Sales Performance')
+plt.title('Average sales performance')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
