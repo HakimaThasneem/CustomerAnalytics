@@ -1,4 +1,4 @@
-#Create bar charts to compare sales performance across different customer segments.
+# Create bar charts to compare sales performance across different customer segments.
 plt.figure(figsize=(10,6))
 sns.barplot(x='Segment', y='Sales Performance', data=df)
 plt.xlabel('Segment')
