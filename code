@@ -1,3 +1,14 @@
+# Visualize customer segmentation using pie charts 
+gender_segment_counts = df.groupby(['Gender', 'Segment']).size().unstack(fill_value=0)
+print(gender_segment_counts)
+for gender in gender_segment_counts.index:
+    data = gender_segment_counts.loc[gender]
+    plt.figure(figsize=(8, 6))
+    plt.pie(data, labels=data.index, autopct='%1.1f%%', startangle=140)
+    plt.title(f'Customer Segments Distribution for {gender}')
+    plt.show()
+
+
 # Create bar charts to compare sales performance across different customer segments.
 plt.figure(figsize=(10,6))
 sns.barplot(x='Segment', y='Sales Performance', data=df)
