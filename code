@@ -58,6 +58,15 @@ label=row['Segment'])
 plt.legend (loc='upper right', bbox_to_anchor=(0.1, 0.1))
 plt.show()
 
+# create heatmap to compare age and gender based on locations.
+pivot_table = df.pivot_table(index='Location', columns='Gender', values='Age', aggfunc='mean')
+plt.figure(figsize=(10, 8))
+sns.heatmap(pivot_table, annot=True, fmt=".1f", cmap="YlGnBu")
+plt.title('Average Age by Gender and Location')
+plt.xlabel('Gender')
+plt.ylabel('Location')
+plt.show()
+
  # visualize frequency of purchase by gender using violin plot.
 plt.figure(figsize=(10, 8))
 sns.violinplot(data=df, x='Gender', y='Frequency of Purchases', palette='Set2')
