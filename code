@@ -1,4 +1,14 @@
- # Visualize customer segmentation using scatter plots
+ # importing libraries.
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+ # load dataset.
+df = pd.read_csv('/content/CustomerAnalytics.csv')
+df.head()
+
+# Visualize customer segmentation using scatter plots.
 plt.figure(figsize=(10, 6))
 sns.scatterplot(data=df, x='Segment', y='Gender', hue='Segment', palette='Set1')
 plt.title('Segment vs Gender')
@@ -7,7 +17,7 @@ plt.ylabel('Gender')
 plt.legend(title='Segment')
 plt.show()
 
- # Visualize customer segmentation using pie charts 
+ # Visualize customer segmentation using pie charts.
 gender_segment_counts = df.groupby(['Gender', 'Segment']).size().unstack(fill_value=0)
 print(gender_segment_counts)
 for gender in gender_segment_counts.index:
