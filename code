@@ -1,4 +1,13 @@
-# Visualize customer segmentation using pie charts 
+ # Visualize customer segmentation using scatter plots
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x='Segment', y='Gender', hue='Segment', palette='Set1')
+plt.title('Segment vs Gender')
+plt.xlabel('Segment')
+plt.ylabel('Gender')
+plt.legend(title='Segment')
+plt.show()
+
+ # Visualize customer segmentation using pie charts 
 gender_segment_counts = df.groupby(['Gender', 'Segment']).size().unstack(fill_value=0)
 print(gender_segment_counts)
 for gender in gender_segment_counts.index:
@@ -8,16 +17,7 @@ for gender in gender_segment_counts.index:
     plt.title(f'Customer Segments Distribution for {gender}')
     plt.show()
 
-# Visualize customer segmentation using scatter plots
-plt.figure(figsize=(10, 6))
-sns.scatterplot(data=df, x='Segment', y='Gender', hue='Segment', palette='Set1')
-plt.title('Segment vs Gender')
-plt.xlabel('Segment')
-plt.ylabel('Gender')
-plt.legend(title='Segment')
-plt.show()
-
-# Create bar charts to compare sales performance across different customer segments.
+ # Create bar charts to compare sales performance across different customer segments.
 plt.figure(figsize=(10,6))
 sns.barplot(x='Segment', y='Sales Performance', data=df)
 plt.xlabel('Segment')
@@ -27,7 +27,7 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
 
-# visualize average customer age by category using line chart.
+ # visualize average customer age by category using line chart.
 age_by_segment = df.groupby('Segment')['Age'].mean()
 age_by_segment.plot(kind='line', marker='o', figsize=(10, 6))
 plt.title('Average Customer Age by Category')
@@ -38,7 +38,7 @@ plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.tight_layout()
 plt.show()
 
-# visualize frequency of purchase by gender using violin plot.
+ # visualize frequency of purchase by gender using violin plot.
 plt.figure(figsize=(10, 8))
 sns.violinplot(data=df, x='Gender', y='Frequency of Purchases', palette='Set2')
 plt.xlabel('Gender')
