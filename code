@@ -26,3 +26,22 @@ plt.title('Average sales performance')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
+
+# visualize average customer age by category using line chart.
+age_by_segment = df.groupby('Segment')['Age'].mean()
+age_by_segment.plot(kind='line', marker='o', figsize=(10, 6))
+plt.title('Average Customer Age by Category')
+plt.xlabel('Category')
+plt.ylabel('Average Age')
+plt.grid(True)
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+plt.show()
+
+# visualize frequency of purchase by gender using violin plot.
+plt.figure(figsize=(10, 8))
+sns.violinplot(data=df, x='Gender', y='Frequency of Purchases', palette='Set2')
+plt.xlabel('Gender')
+plt.ylabel('Purchase Frequency')
+plt.title('Comparison of Purchase Frequency by Gender')
+plt.show()
