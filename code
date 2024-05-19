@@ -8,6 +8,14 @@ for gender in gender_segment_counts.index:
     plt.title(f'Customer Segments Distribution for {gender}')
     plt.show()
 
+# Visualize customer segmentation using scatter plots
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=df, x='Segment', y='Gender', hue='Segment', palette='Set1')
+plt.title('Segment vs Gender')
+plt.xlabel('Segment')
+plt.ylabel('Gender')
+plt.legend(title='Segment')
+plt.show()
 
 # Create bar charts to compare sales performance across different customer segments.
 plt.figure(figsize=(10,6))
